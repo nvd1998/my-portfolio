@@ -1,22 +1,20 @@
 <template>
-  <div class="main-header">
+  <div class="menu-button">
     <div class="main-header_wrapper">
-      <div>DRAKE</div>
-      <div>
-        <a v-for="item in headerItems" :key="item.id" :href="item.to">{{
-          item.label
-        }}</a>
-      </div>
-      <MenuButton />
+      <div class="icon-button"></div>
+    </div>
+    <div>
+      <a v-for="item in headerItems" :key="item.id" :href="item.to">{{
+        item.label
+      }}</a>
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import MenuButton from '../MenuButton.vue';
 export default defineComponent({
-  name: 'MainHeader',
+  name: 'MenuButton',
   setup() {
     const headerItems = [
       {
@@ -42,15 +40,10 @@ export default defineComponent({
     ];
     return { headerItems };
   },
-  components: { MenuButton },
 });
 </script>
 
 <style lang="scss" scoped>
-.main-header {
-  @apply sticky top-0 left-0 z-[2] flex justify-center items-center;
-  .main-header_wrapper {
-    @apply w-full max-w-[1440px] py-10 flex justify-between items-center;
-  }
+.menu-button {
 }
 </style>
