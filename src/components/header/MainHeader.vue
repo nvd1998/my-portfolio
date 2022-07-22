@@ -1,56 +1,29 @@
 <template>
   <div class="main-header">
     <div class="main-header_wrapper">
-      <div>DRAKE</div>
-      <div>
-        <a v-for="item in headerItems" :key="item.id" :href="item.to">{{
-          item.label
-        }}</a>
-      </div>
+      <div class="text-secondary uppercase text-[30px] font-bold">DRAKE</div>
       <MenuButton />
     </div>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import MenuButton from '../MenuButton.vue';
+import { defineComponent } from "vue";
+import MenuButton from "./MenuButton.vue";
 export default defineComponent({
-  name: 'MainHeader',
-  setup() {
-    const headerItems = [
-      {
-        id: 0,
-        label: 'Home',
-        to: '#',
-      },
-      {
-        id: 1,
-        label: 'About',
-        to: '#about',
-      },
-      {
-        id: 2,
-        label: 'Projects',
-        to: '#projects',
-      },
-      {
-        id: 3,
-        label: 'Contact',
-        to: '#contact',
-      },
-    ];
-    return { headerItems };
-  },
+  name: "MainHeader",
   components: { MenuButton },
+  setup() {
+    return {};
+  },
 });
 </script>
 
 <style lang="scss" scoped>
 .main-header {
-  @apply sticky top-0 left-0 z-[2] flex justify-center items-center;
+  @apply fixed top-0 left-0 z-[2] flex justify-center items-center bg-transparent h-[100px] w-full;
   .main-header_wrapper {
-    @apply w-full max-w-[1440px] py-10 flex justify-between items-center;
+    @apply relative w-full max-w-[1440px] py-10 flex justify-between items-center;
   }
 }
 </style>
