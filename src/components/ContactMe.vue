@@ -1,13 +1,13 @@
 <template>
-  <div class="contact-me">
+  <div class="contact-me" id="contact">
     <div class="contact-me_wrapper">
-      <h1 class="title">Send me a message!</h1>
-      <h2 class="short-description">
+      <h1 class="title" id="contact-me-title">Send me a message!</h1>
+      <h2 class="sub-title" id="contact-me-sub-title">
         Got a question or proposal, or just want to say hello? Go ahead.
       </h2>
       <form>
         <div class="input-group">
-          <label>
+          <label id="contact-me-name-input">
             <span>Your name</span>
             <input
               type="text"
@@ -16,7 +16,7 @@
               placeholder="Enter your name"
             />
           </label>
-          <label>
+          <label id="contact-me-email-input">
             <span>Email</span>
             <input
               type="email"
@@ -26,7 +26,7 @@
             />
           </label>
         </div>
-        <label>
+        <label id="contact-me-message">
           <span>Message</span>
           <textarea
             name="message"
@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref, inject } from 'vue';
+import { defineComponent, ref, inject, onMounted, onUnmounted } from 'vue';
 import DButton from './base/DButton.vue';
 
 export default defineComponent({
@@ -48,6 +48,7 @@ export default defineComponent({
   components: { DButton },
   setup() {
     const axios = inject('axios'); // inject axios
+    const addAnimationWhenShowUp = inject('addAnimationWhenShowUp'); // inject addAnimationWhenShowUp
     const name = ref('');
     const email = ref('');
     const message = ref('');
@@ -60,6 +61,17 @@ export default defineComponent({
       };
       const response = await axios.post(endpoint, data);
     };
+
+    onMounted(() => {
+      addAnimationWhenShowUp('contact-me-title', 'show-up-from-top');
+      addAnimationWhenShowUp('contact-me-sub-title', 'show-up-from-bottom');
+      addAnimationWhenShowUp('contact-me-message', 'show-up-from-bottom');
+      addAnimationWhenShowUp('contact-me-name-input', 'show-up-from-left');
+      addAnimationWhenShowUp('contact-me-email-input', 'show-up-from-right');
+    });
+    onUnmounted(() => {
+      window.removeEventListener('scroll');
+    });
     return { name, email, message, submitForm };
   },
 });
@@ -73,7 +85,7 @@ export default defineComponent({
     .title {
       @apply text-[50px] text-center font-bold max-w-[600px] text-primary mb-5;
     }
-    .short-description {
+    .sub-title {
       @apply text-[25px] text-center font-bold max-w-[500px] text-dark-sapphire mb-20;
     }
     > form {

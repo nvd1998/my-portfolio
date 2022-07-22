@@ -1,12 +1,16 @@
 <template>
-  <div class="main-footer">
+  <div class="main-footer" id="main-footer">
     <div class="main-footer_wrapper">
       <p class="slogan">Living, learning, & leveling up one day at a time.</p>
       <div>
         <p class="copyright">Handcrafted by me © Drake Nguyen 2022</p>
 
         <div class="social-list">
-          <a href="https://www.facebook.com/dev.duc19" target="_blank">
+          <a
+            href="https://www.facebook.com/dev.duc19"
+            target="_blank"
+            id="facebook-icon"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -27,7 +31,11 @@
               ></path>
             </svg>
           </a>
-          <a href="https://www.instagram.com/dev_duc/" target="_blank">
+          <a
+            href="https://www.instagram.com/dev_duc/"
+            target="_blank"
+            id="instagram-icon"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               role="img"
@@ -68,6 +76,7 @@
           <a
             href="https://www.linkedin.com/in/nguyen-duc-72a42a177/"
             target="_blank"
+            id="linkedin-icon"
           >
             <svg
               class="social-icons"
@@ -103,7 +112,7 @@
               ></circle>
             </svg>
           </a>
-          <a href="https://github.com/nvd1998" target="_blank"
+          <a href="https://github.com/nvd1998" target="_blank" id="github-icon"
             ><svg
               class="social-icons"
               xmlns="http://www.w3.org/2000/svg"
@@ -130,28 +139,21 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, inject, onUnmounted } from 'vue';
 export default defineComponent({
   name: 'MainFooter',
   setup() {
-    const headerItems = [
-      {
-        id: 0,
-        label: 'Home',
-      },
-      {
-        id: 1,
-        label: 'About',
-      },
-      {
-        id: 2,
-        label: 'Projects',
-      },
-      {
-        id: 3,
-        label: 'Contact',
-      },
-    ];
+    const addAnimationWhenShowUp = inject('addAnimationWhenShowUp'); // inject addAnimationWhenShowUp
+    onMounted(() => {
+      addAnimationWhenShowUp('facebook-icon', 'bouncing');
+      addAnimationWhenShowUp('instagram-icon', 'bouncing-2');
+      addAnimationWhenShowUp('linkedin-icon', 'bouncing-3');
+      addAnimationWhenShowUp('github-icon', 'bouncing-4');
+    });
+    onUnmounted(() => {
+      window.removeEventListener('scroll');
+    });
+    return {};
   },
 });
 </script>

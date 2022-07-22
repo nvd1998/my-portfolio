@@ -9,8 +9,17 @@
       }}</a>
       <div class="say-hello">
         <p class="section-title">Say Hello</p>
-        <a href="mailto:vietduc1703@gmail.com">My email</a>
-        <a href="https://www.linkedin.com/in/nguyen-duc-72a42a177/"
+        <a href="mailto:vietduc1703@gmail.com">My Email</a>
+        <a href="https://www.facebook.com/dev.duc19" target="_blank"
+          >My Facebook</a
+        >
+        <a href="https://www.instagram.com/dev_duc/" target="_blank"
+          >My Instagram</a
+        >
+        <a href="https://github.com/nvd1998" target="_blank">My Github</a>
+        <a
+          href="https://www.linkedin.com/in/nguyen-duc-72a42a177/"
+          target="_blank"
           >My Linkedin</a
         >
       </div>
@@ -19,30 +28,30 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 export default defineComponent({
-  name: "MenuButton",
+  name: 'MenuButton',
   setup() {
     const headerItems = [
       {
         id: 0,
-        label: "Home",
-        to: "#",
+        label: 'Home',
+        to: '#',
       },
       {
         id: 1,
-        label: "About",
-        to: "#about",
+        label: 'About',
+        to: '#about',
       },
       {
         id: 2,
-        label: "Projects",
-        to: "#projects",
+        label: 'Projects',
+        to: '#projects',
       },
       {
         id: 3,
-        label: "Contact",
-        to: "#contact",
+        label: 'Contact',
+        to: '#contact',
       },
     ];
     const displayValue = ref(false);
@@ -60,11 +69,11 @@ export default defineComponent({
     .icon-button {
       @apply w-full h-full cursor-pointer;
       &::before {
-        content: "";
+        content: '';
         @apply absolute top-0 left-0 w-full h-[2px] transition-all duration-300 bg-primary;
       }
       &::after {
-        content: "";
+        content: '';
         @apply absolute bottom-5 right-0 w-[80%] h-[2px] transition-all duration-300  bg-primary;
       }
     }
@@ -77,18 +86,18 @@ export default defineComponent({
   }
 }
 .menu-button {
-  @apply pt-[100px] absolute right-0 top-1/2 bg-white px-10 py-[30px] w-[350px] h-[500px] transition-all duration-300;
+  @apply pt-[100px] absolute right-0 top-1/2 bg-white px-10 py-[30px] w-[350px] h-fit transition-all duration-300;
   transform: translateY(-30px);
   .menu-button_wrapper {
     @apply absolute top-[30px] right-10 w-[50px] h-[40px];
     .icon-button {
       @apply w-full h-full cursor-pointer;
       &::before {
-        content: "";
+        content: '';
         @apply absolute bottom-5 left-0 w-full h-[2px] bg-primary transition-all duration-300 transform rotate-[45deg];
       }
       &::after {
-        content: "";
+        content: '';
         @apply absolute bottom-5 right-0 w-full h-[2px] bg-primary transition-all duration-300 transform -rotate-[45deg];
       }
     }

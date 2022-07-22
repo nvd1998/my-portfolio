@@ -15,17 +15,20 @@ app.use(router);
 
 app.mount('#app');
 app.use(VueAxios, axios);
-app.provide('axios', app.config.globalProperties.axios); // provide 'axios'
+app.provide('axios', app.config.globalProperties.axios);
 
-const commonCmps = import.meta.globEager('@/components/*.vue');
-registerComponents(app, commonCmps);
-
-function registerComponents(app, components) {
-  Object.entries(components).forEach(([path, definition]) => {
-    const componentName = path
-      .split('/')
-      .pop()
-      .replace(/\.\w+$/, '');
-    app.component(componentName, definition.default);
+const addAnimationWhenShowUp = (
+  childElementID,
+  animationName = 'show-up-from-bottom'
+) => {
+  const childElement = document.getElementById(childElementID);
+  let bounding = childElement.getBoundingClientRect();
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > childElement.offsetHeight + bounding.y) {
+      childElement.classList.add(animationName);
+    } else {
+      childElement.classList.remove(animationName);
+    }
   });
-}
+};
+app.provide('addAnimationWhenShowUp', addAnimationWhenShowUp);

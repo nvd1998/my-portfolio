@@ -25,3 +25,92 @@ input:hover, textarea:hover {
 input:focus-visible, textarea:focus-visible {
   @apply border-b-primary;
 }
+
+@keyframes showUpFromBottom {
+  0% {
+    @apply -bottom-[72px] opacity-0;
+  }
+  100% {
+    @apply bottom-0 opacity-100;
+  }
+}
+
+.show-up-from-bottom {
+  animation-name: showUpFromBottom;
+  animation-duration: .3s;
+}
+
+@keyframes showUpFromTop {
+  0% {
+    @apply -top-[72px] opacity-0;
+  }
+  100% {
+    @apply top-0 opacity-100;
+  }
+}
+
+.show-up-from-top {
+  animation-name: showUpFromTop;
+  animation-duration: .4s;
+}
+
+@keyframes showUpFromLeft {
+  0% {
+    @apply -left-[72px] opacity-0;
+  }
+  100% {
+    @apply left-0 opacity-100;
+  }
+}
+
+.show-up-from-left {
+  animation-name: showUpFromLeft;
+  animation-duration: .4s;
+}
+
+@keyframes showUpFromRight {
+  0% {
+    @apply -right-[72px] opacity-0;
+  }
+  100% {
+    @apply right-0 opacity-100;
+  }
+}
+
+.show-up-from-right {
+  animation-name: showUpFromRight;
+  animation-duration: .4s;
+}
+
+
+@keyframes bouncing {
+  0% {
+    @apply bottom-0;
+  }
+  50% {
+    @apply bottom-[10px];
+  }
+  100% {
+    @apply bottom-0;
+  }
+}
+
+.bouncing {
+  animation-name: bouncing;
+  animation-duration: .5s;
+}
+.bouncing-2 {
+  animation-name: bouncing;
+  animation-duration: .5s;
+  animation-delay: .5s;
+}
+.bouncing-3 {
+  animation-name: bouncing;
+  animation-duration: .5s;
+  animation-delay: 1s;
+}
+.bouncing-4 {
+  animation-name: bouncing;
+  animation-duration: .5s;
+  animation-delay: 1.5s;
+}
