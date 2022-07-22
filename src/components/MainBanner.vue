@@ -78,7 +78,7 @@
           </svg>
 
           <div class="photo-wrapper">
-            <img src="avatar.jpg" alt="" />
+            <img src="https://unsplash.com/photos/EkCrlbTfZG4" alt="" />
           </div>
         </div>
       </div>
