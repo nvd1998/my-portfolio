@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import MenuButton from "./MenuButton.vue";
+import { defineComponent } from 'vue';
+import MenuButton from './MenuButton.vue';
 export default defineComponent({
-  name: "MainHeader",
+  name: 'MainHeader',
   components: { MenuButton },
   setup() {
     return {};
@@ -23,7 +23,7 @@ export default defineComponent({
 .main-header {
   @apply fixed top-0 left-0 z-[2] flex justify-center items-center bg-transparent h-[100px] w-full;
   .main-header_wrapper {
-    @apply relative w-full max-w-[1440px] py-10 flex justify-between items-center;
+    @apply relative w-full max-w-[1600px] py-10 flex justify-between items-center;
   }
 }
 </style>

@@ -2,9 +2,11 @@
   "name": "my-portfolio",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 8888",
     "build": "vite build",
     "preview": "vite preview --port 4173",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -23,8 +25,10 @@
     "autoprefixer": "^10.4.7",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^9.0.0",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.5.1",
     "vite": "^3.0.1"
-  }
+  },
+  "homepage": "http://nvd1998.github.io/my-portfolio"
 }

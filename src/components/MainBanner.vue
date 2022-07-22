@@ -86,19 +86,19 @@
   </div>
 </template>
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "App",
+  name: 'App',
 });
 </script>
 
 <style lang="scss" scoped>
 .main-banner {
-  @apply h-[100vh] w-full relative;
+  @apply h-[100vh] w-full relative py-10;
   background: linear-gradient(90deg, #3c6382 67%, #f8c291 33%);
   .left-line {
-    @apply absolute left-0 top-[200px];
+    @apply absolute left-0 top-[200px] z-[1];
   }
   .main-banner_wrapper {
     @apply w-full max-w-[1280px] h-full mx-auto;
@@ -110,10 +110,10 @@ export default defineComponent({
           @apply text-[70px] leading-[100%] text-secondary font-bold max-w-[475px] mb-5;
         }
         .first-letters {
-          @apply text-[20px] text-white font-normal leading-[150%] max-w-[500px] mb-16;
+          @apply text-[20px] text-white font-normal leading-[150%] max-w-[600px] mb-16;
         }
         .more-info {
-          @apply w-[500px] grid grid-cols-2 gap-10;
+          @apply w-[600px] grid grid-cols-2 gap-10;
           > p {
             @apply text-[16px] text-secondary leading-[20px];
           }
@@ -122,11 +122,11 @@ export default defineComponent({
       .profile-photo {
         @apply relative w-[600px] h-[480px];
         .photo-wrapper {
-          @apply absolute w-[350px] h-[250px]  top-1/2 left-1/2;
+          @apply absolute w-[350px] h-[300px]  top-1/2 left-1/2;
           transform: translate(-50%, -50%);
-        }
-        > img {
-          @apply absolute w-full h-full object-cover object-center;
+          > img {
+            @apply absolute w-full h-full object-cover object-center;
+          }
         }
         .avatar-background {
           @apply w-full h-full object-center object-contain;
