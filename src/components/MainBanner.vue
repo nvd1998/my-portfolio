@@ -78,7 +78,7 @@
           </svg>
 
           <div class="photo-wrapper">
-            <img src="avatar.jpg" alt="" />
+            <img src="@/assets/avatar.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ export default defineComponent({
           @apply absolute w-[350px] h-[300px]  top-1/2 left-1/2;
           transform: translate(-50%, -50%);
           > img {
-            @apply absolute w-full h-full object-cover object-center;
+            @apply absolute w-full h-full object-scale-down object-center;
           }
         }
         .avatar-background {

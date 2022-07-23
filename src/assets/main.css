@@ -37,7 +37,7 @@ input:focus-visible, textarea:focus-visible {
 
 .show-up-from-bottom {
   animation-name: showUpFromBottom;
-  animation-duration: .3s;
+  animation-duration: .5s;
 }
 
 @keyframes showUpFromTop {
@@ -51,7 +51,24 @@ input:focus-visible, textarea:focus-visible {
 
 .show-up-from-top {
   animation-name: showUpFromTop;
-  animation-duration: .4s;
+  animation-duration: .5s;
+}
+
+@keyframes showUpFromTopThenDisappear {
+  0% {
+    @apply top-0 opacity-0;
+  }
+  50% {
+    @apply top-[50px] opacity-100;
+  }
+  100% {
+    @apply top-0 opacity-0;
+  }
+}
+
+.show-up-from-top-then-disappear {
+  animation-name: showUpFromTopThenDisappear;
+  animation-duration: .5s;
 }
 
 @keyframes showUpFromLeft {
@@ -65,7 +82,7 @@ input:focus-visible, textarea:focus-visible {
 
 .show-up-from-left {
   animation-name: showUpFromLeft;
-  animation-duration: .4s;
+  animation-duration: .5s;
 }
 
 @keyframes showUpFromRight {
@@ -79,7 +96,7 @@ input:focus-visible, textarea:focus-visible {
 
 .show-up-from-right {
   animation-name: showUpFromRight;
-  animation-duration: .4s;
+  animation-duration: .5s;
 }
 
 

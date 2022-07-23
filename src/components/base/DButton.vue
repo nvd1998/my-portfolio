@@ -1,5 +1,5 @@
 <template>
-  <div class="common-button">
+  <button class="common-button">
     <div class="hovered-background"></div>
     <span>{{ label }}</span>
     <svg
@@ -18,7 +18,7 @@
         d="M.043 11.119h70.714M60.917 1.319l9.8 9.8-9.8 9.8"
       ></path>
     </svg>
-  </div>
+  </button>
 </template>
 <script>
 import { defineComponent } from 'vue';
@@ -37,6 +37,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .common-button {
   @apply relative px-[60px] py-4 w-fit border border-primary flex justify-center items-center cursor-pointer bg-snow;
+  &:disabled {
+    @apply cursor-not-allowed;
+  }
   .hovered-background {
     @apply absolute top-0 left-0 w-0 h-full bg-primary transition-all duration-200;
   }
