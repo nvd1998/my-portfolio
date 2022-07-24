@@ -202,14 +202,13 @@ export default defineComponent({
     }
   }
 }
-// @media screen and (min-width: 768px) and (max-width: 991px) {
-// }
-// @media screen and (min-width: 576px) and (max-width: 767px) {
-// }
 @media screen and (max-width: 575px) {
   .main-footer {
     .main-footer_wrapper {
       @apply max-w-full;
+      .slogan {
+        @apply text-[24px];
+      }
       > div {
         @apply flex flex-col flex-col-reverse justify-between items-center;
         .social-list {
