@@ -152,7 +152,7 @@ export default defineComponent({
 .contact-me {
   @apply min-h-[100vh] w-full py-10 bg-snow flex justify-center items-center;
   .contact-me_wrapper {
-    @apply max-w-[1440px] w-full h-full mx-auto flex flex-col justify-center items-center;
+    @apply max-w-[1280px] w-full h-full mx-auto flex flex-col justify-center items-center;
     .title {
       @apply text-[50px] text-center font-bold max-w-[600px] text-primary mb-5;
     }
@@ -181,6 +181,41 @@ export default defineComponent({
         input::placeholder,
         textarea::placeholder {
           @apply text-[#e55039];
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1439px) {
+}
+@media screen and (max-width: 1439px) {
+  .contact-me {
+    @apply min-h-[600px] w-full px-5;
+    .contact-me_wrapper {
+      @apply max-w-full w-full h-full;
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .contact-me {
+    @apply min-h-[600px] w-full px-5;
+    .contact-me_wrapper {
+      @apply max-w-full w-full h-full;
+      .title {
+        @apply text-[30px] max-w-full;
+      }
+      .sub-title {
+        @apply text-[20px] mb-10;
+      }
+      > form {
+        .input-group {
+          @apply gap-[30px];
+        }
+        label {
+          @apply mb-5;
+          > span {
+            @apply text-[16px];
+          }
         }
       }
     }

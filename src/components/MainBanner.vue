@@ -20,12 +20,12 @@
     <div class="main-banner_wrapper">
       <div class="primary-content">
         <div class="general-info">
-          <p class="job-title">Frontend Developer.</p>
-          <p class="first-letters">
+          <p class="job-title shaking">Frontend Developer.</p>
+          <p class="first-letters fade-in">
             I like to craft solid and scalable frontend products with great user
             experiences.
           </p>
-          <div class="more-info">
+          <div class="more-info fade-in">
             <p>
               Highly skilled at progressive enhancement, design systems & UI
               Engineering.
@@ -77,8 +77,8 @@
             ></path>
           </svg>
 
-          <div class="photo-wrapper">
-            <img src="@/assets/avatar.jpg" alt="" />
+          <div class="photo-wrapper fade-in">
+            <img src="@/assets/avatar.jpg" alt="" class="" />
           </div>
         </div>
       </div>
@@ -101,35 +101,167 @@ export default defineComponent({
     @apply absolute left-0 top-[200px] z-[1];
   }
   .main-banner_wrapper {
-    @apply w-full max-w-[1280px] h-full mx-auto;
+    @apply w-full h-full mx-auto;
     .primary-content {
       @apply absolute top-1/2 left-1/2 w-full flex items-center justify-between;
       transform: translate(-50%, -50%);
       .general-info {
+        @apply max-w-[46%];
         .job-title {
           @apply text-[70px] leading-[100%] text-secondary font-bold max-w-[475px] mb-5;
         }
         .first-letters {
-          @apply text-[20px] text-white font-normal leading-[150%] max-w-[600px] mb-16;
+          @apply text-[20px] text-white font-normal leading-[150%]  mb-16;
         }
         .more-info {
-          @apply w-[600px] grid grid-cols-2 gap-10;
+          @apply grid grid-cols-2 gap-10;
           > p {
             @apply text-[16px] text-secondary leading-[20px];
           }
         }
       }
       .profile-photo {
-        @apply relative w-[600px] h-[480px];
+        @apply relative w-[46%] h-[480px];
         .photo-wrapper {
-          @apply absolute w-[350px] h-[300px]  top-1/2 left-1/2;
+          @apply absolute w-[350px] h-[300px]  top-1/2 left-1/2 border border-snow;
           transform: translate(-50%, -50%);
           > img {
-            @apply absolute w-full h-full object-scale-down object-center;
+            @apply absolute -top-3 -left-3 w-full h-full object-fill object-center;
           }
         }
         .avatar-background {
           @apply w-full h-full object-center object-contain;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1400px) {
+  .main-banner {
+    .main-banner_wrapper {
+      @apply max-w-[67%];
+      .primary-content {
+        .profile-photo {
+          .avatar-background {
+            @apply absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto h-full object-center object-contain;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .main-banner {
+    .main-banner_wrapper {
+      @apply max-w-[70%];
+      .primary-content {
+        .general-info {
+          .job-title {
+            @apply text-[50px];
+          }
+          .first-letters {
+            @apply text-[18px];
+          }
+          .more-info {
+            @apply gap-5;
+            > p {
+              @apply text-[14px];
+            }
+          }
+        }
+        .profile-photo {
+          @apply relative w-[46%] h-[480px];
+          .photo-wrapper {
+            @apply absolute w-[250px] h-[200px];
+          }
+          .avatar-background {
+            @apply absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto h-[70%] object-center object-contain;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .main-banner {
+    @apply h-[600px];
+    .left-line {
+      @apply top-0;
+      > svg {
+        @apply w-[200px];
+      }
+    }
+    .main-banner_wrapper {
+      @apply max-w-[70%];
+      .primary-content {
+        .general-info {
+          .job-title {
+            @apply text-[40px];
+          }
+          .first-letters {
+            @apply text-[14px] mb-10;
+          }
+          .more-info {
+            @apply gap-5;
+            > p {
+              @apply text-[12px];
+            }
+          }
+        }
+        .profile-photo {
+          @apply relative w-[46%] h-[480px];
+          .photo-wrapper {
+            @apply absolute w-[250px] h-[200px];
+          }
+          .avatar-background {
+            @apply absolute top-1/2 left-1/2 w-auto h-[70%] object-center object-contain transform -translate-y-1/2 -translate-x-1/2;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .main-banner {
+    @apply min-h-[600px] h-fit pb-0 pt-[100px];
+    background: #3c6382;
+    .left-line {
+      @apply hidden;
+    }
+    .main-banner_wrapper {
+      @apply max-w-full h-fit;
+      .primary-content {
+        @apply flex-col relative top-0 left-0 translate-x-0 translate-y-0;
+        .general-info {
+          @apply w-full max-w-full p-5;
+          .job-title {
+            @apply text-[40px];
+          }
+          .first-letters {
+            @apply text-[14px] mb-10;
+          }
+          .more-info {
+            @apply gap-5;
+            > p {
+              @apply text-[12px];
+            }
+          }
+        }
+        .profile-photo {
+          @apply w-full max-w-full h-[350px] bg-secondary px-5;
+          .photo-wrapper {
+            @apply absolute h-[200px];
+            width: calc(100% - 50px);
+            > img {
+              @apply object-cover;
+            }
+          }
+          .avatar-background {
+            @apply absolute top-1/2 left-1/2 w-full h-auto object-center object-contain transform -translate-y-1/2 -translate-x-1/2;
+            > path {
+              stroke: #3c6382;
+            }
+          }
         }
       }
     }

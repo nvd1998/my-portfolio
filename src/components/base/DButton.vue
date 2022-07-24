@@ -37,6 +37,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .common-button {
   @apply relative px-[60px] py-4 w-fit border border-primary flex justify-center items-center cursor-pointer bg-snow;
+  @media screen and (max-width: 576px) {
+    @apply px-[30px] py-2;
+  }
   &:disabled {
     @apply cursor-not-allowed;
   }
@@ -56,9 +59,15 @@ export default defineComponent({
   }
   > span {
     @apply uppercase text-[18px] tracking-[1px] font-medium mr-5;
+    @media screen and (max-width: 576px) {
+      @apply text-[14px];
+    }
   }
   .icon-right-arrow {
     @apply w-[46px] h-6;
+    @media screen and (max-width: 576px) {
+      @apply w-[30px];
+    }
   }
 }
 </style>

@@ -26,6 +26,12 @@ input:focus-visible, textarea:focus-visible {
   @apply border-b-primary;
 }
 
+@media screen and (max-width: 576px) {
+    input, textarea, input::placeholder, textarea::placeholder {
+    @apply text-[12px];
+  }
+}
+
 @keyframes showUpFromBottom {
   0% {
     @apply -bottom-[72px] opacity-0;
@@ -115,19 +121,56 @@ input:focus-visible, textarea:focus-visible {
 .bouncing {
   animation-name: bouncing;
   animation-duration: .5s;
+  animation-delay: .5s;
 }
 .bouncing-2 {
   animation-name: bouncing;
   animation-duration: .5s;
-  animation-delay: .5s;
+  animation-delay: 1s;
 }
 .bouncing-3 {
   animation-name: bouncing;
   animation-duration: .5s;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
 }
 .bouncing-4 {
   animation-name: bouncing;
   animation-duration: .5s;
-  animation-delay: 1.5s;
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    @apply opacity-0;
+  }
+  100% {
+    @apply opacity-100;
+  }
+}
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: .5s;
+}
+
+@keyframes shaking {
+  0% {
+    @apply opacity-0 -left-5;
+  }
+  25% {
+    @apply opacity-20 left-5;
+  }
+  50% {
+    @apply opacity-40 -left-5;
+  }
+  75% {
+    @apply opacity-60 left-5;
+  }
+  100% {
+    @apply opacity-100 left-0;
+  }
+}
+.shaking {
+  animation-name: shaking;
+  animation-duration: .6s;
+  animation-timing-function: ease;
 }

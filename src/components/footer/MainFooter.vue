@@ -162,7 +162,7 @@ export default defineComponent({
 .main-footer {
   @apply w-full h-fit bg-primary;
   .main-footer_wrapper {
-    @apply relative w-full max-w-[1600px] mx-auto py-10 flex items-center justify-between flex-wrap;
+    @apply relative w-full mx-auto py-10 px-5 flex items-center justify-between flex-wrap;
     .slogan {
       @apply text-[26px] text-center text-secondary font-medium my-8 w-[350px] mx-auto;
     }
@@ -183,6 +183,37 @@ export default defineComponent({
           .social-icons {
             @apply w-5 h-5 mx-5 transition-all duration-200;
           }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main-footer {
+    .main-footer_wrapper {
+      @apply max-w-[1600px];
+    }
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 1199px) {
+  .main-footer {
+    .main-footer_wrapper {
+      @apply max-w-full;
+    }
+  }
+}
+// @media screen and (min-width: 768px) and (max-width: 991px) {
+// }
+// @media screen and (min-width: 576px) and (max-width: 767px) {
+// }
+@media screen and (max-width: 575px) {
+  .main-footer {
+    .main-footer_wrapper {
+      @apply max-w-full;
+      > div {
+        @apply flex flex-col flex-col-reverse justify-between items-center;
+        .social-list {
+          @apply my-5;
         }
       }
     }

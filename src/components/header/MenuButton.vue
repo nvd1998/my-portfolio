@@ -1,6 +1,6 @@
 <template>
-  <div :class="displayValue ? 'menu-button' : 'hidden-menu-button'">
-    <div class="menu-button_wrapper">
+  <div :class="[displayValue ? 'menu-button' : 'hidden-menu-button']">
+    <div class="menu-button_wrapper" id="menu-button_wrapper">
       <div class="icon-button" @click="displayValue = !displayValue"></div>
     </div>
     <div :class="'menu-list'">
@@ -62,19 +62,31 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .hidden-menu-button {
-  @apply absolute right-0 top-1/2 bg-transparent w-[90px] h-[70px] transition-all duration-300 pr-10 pt-[30px];
+  @apply absolute right-5 top-1/2 bg-transparent w-[90px] h-[70px] transition-all duration-300 pr-10 pt-[30px];
   transform: translateY(-30px);
+  @media screen and (max-width: 900px) {
+    @apply pr-5 pt-5;
+  }
   .menu-button_wrapper {
-    @apply absolute top-[30px] right-10 w-[50px] h-[40px];
+    @apply absolute top-[30px] right-10 w-[50px] h-[40px] transition-all duration-500;
+    @media screen and (max-width: 900px) {
+      @apply top-5 right-5;
+    }
     .icon-button {
       @apply w-full h-full cursor-pointer;
       &::before {
         content: '';
         @apply absolute top-0 left-0 w-full h-[2px] transition-all duration-300 bg-primary;
+        @media screen and (max-width: 767px) {
+          @apply bg-secondary;
+        }
       }
       &::after {
         content: '';
         @apply absolute bottom-5 right-0 w-[80%] h-[2px] transition-all duration-300  bg-primary;
+        @media screen and (max-width: 767px) {
+          @apply bg-secondary;
+        }
       }
     }
   }
@@ -86,10 +98,11 @@ export default defineComponent({
   }
 }
 .menu-button {
-  @apply pt-[100px] absolute right-0 top-1/2 bg-white px-10 py-[30px] w-[350px] h-fit transition-all duration-300;
+  @apply pt-[100px] absolute right-5 top-1/2 bg-white px-10 py-[30px] w-[350px] h-fit transition-all duration-300;
   transform: translateY(-30px);
+  box-shadow: 0px 10px 20px 1px rgba(69, 69, 69, 0.5);
   .menu-button_wrapper {
-    @apply absolute top-[30px] right-10 w-[50px] h-[40px];
+    @apply absolute top-[30px] right-10 w-[50px] h-[40px] transition-all duration-500;
     .icon-button {
       @apply w-full h-full cursor-pointer;
       &::before {
@@ -119,6 +132,38 @@ export default defineComponent({
         @apply text-[18px] text-primary font-medium transition-all duration-[0.4] p-[10px] rounded-[5px];
         &:hover {
           @apply bg-primary-hover;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .hidden-menu-button {
+    .scrolled-hidden-menu-button {
+      @apply top-5 right-5;
+      .icon-button {
+        &::before {
+          content: '';
+          background-color: #f8c291 !important;
+        }
+        &::after {
+          content: '';
+          background-color: #f8c291 !important;
+        }
+      }
+    }
+  }
+
+  .menu-button {
+    .scrolled-hidden-menu-button {
+      .icon-button {
+        &::before {
+          content: '';
+          background-color: #3c6382 !important;
+        }
+        &::after {
+          content: '';
+          background-color: #3c6382 !important;
         }
       }
     }
