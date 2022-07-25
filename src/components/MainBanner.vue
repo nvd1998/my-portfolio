@@ -126,7 +126,7 @@ export default defineComponent({
           @apply absolute w-[350px] h-[300px]  top-1/2 left-1/2 border border-snow;
           transform: translate(-50%, -50%);
           > img {
-            @apply absolute -top-3 -left-3 w-full h-full object-fill object-center;
+            @apply absolute -top-3 -left-3 w-full h-full object-cover object-bottom;
           }
         }
         .avatar-background {
